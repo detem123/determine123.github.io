@@ -1,6 +1,8 @@
 import { defineUserConfig } from "vuepress";
 import { getDirname, path } from "vuepress/utils";
 import { viteBundler } from '@vuepress/bundler-vite'
+
+// 插件导入
 import { docsearchPlugin } from "@vuepress/plugin-docsearch";
 import {
   canvasPlugin,
@@ -16,10 +18,15 @@ import { googleAnalyticsPlugin } from "@vuepress/plugin-google-analytics";
 import metingPlugin from "vuepress-plugin-meting2";
 
 const __dirname = getDirname(import.meta.url);
+
 export default defineUserConfig({
+  // 基础路径：部署到根域名下必须设为 "/"
   base: "/",
+
+  // 语言
   lang: "zh-CN",
-  head: [["meta", { name: "referrer", content: "no-referrer-when-downgrade" }]],
+
+  // 站点标题和描述
   locales: {
     "/": {
       lang: "zh-CN",
@@ -27,6 +34,13 @@ export default defineUserConfig({
       description: "detem123 的个人博客，记录学习和生活",
     },
   },
+
+  // 头部标签
+  head: [
+    ["meta", { name: "referrer", content: "no-referrer-when-downgrade" }],
+  ],
+
+  // 路径别名（确保你的项目中有对应的组件文件）
   alias: {
     "@MyLink": path.resolve(__dirname, "./components/Mylink.vue"),
     "@MyCoverLink": path.resolve(__dirname, "./components/MyCoverLink.vue"),
@@ -34,10 +48,13 @@ export default defineUserConfig({
     "@Api": path.resolve(__dirname, "./data/api.ts"),
   },
 
+  // 主题
   theme: theme,
 
+  // 开发服务器端口
   port: 9527,
 
+  // 构建工具配置
   bundler: viteBundler({
     viteOptions: {
       server: {
@@ -48,10 +65,13 @@ export default defineUserConfig({
             rewrite: (path) => path.replace(/^\/bing/, ""),
           },
         },
-      }
+      },
     },
   }),
+
+  // 插件
   plugins: [
+    // 音乐播放器
     metingPlugin({
       metingOptions: {
         global: true,
@@ -64,9 +84,11 @@ export default defineUserConfig({
         }
       },
     }),
+
     // 一言插件
     hitokotoPlugin({}),
-    // 鼠标特效插件
+
+    // 鼠标特效
     popperPlugin({
       config: {
         shape: PopperShape.Star,
@@ -74,11 +96,13 @@ export default defineUserConfig({
         numParticles: 8,
       },
     }),
-    // 看板娘辅助插件
+
+    // 看板娘辅助
     live2DAssistPlugin({
       subPageHidden: true,
     }),
-    // 背景插件
+
+    // 动态背景
     canvasPlugin({
       type: CanvasPluginType.Figure,
       ribbonOption: {
@@ -87,14 +111,19 @@ export default defineUserConfig({
         size: 90,
       },
     }),
-    // 遮罩插件
+
+    // 渐变遮罩
     gradientCoverPlugin({}),
-    // 谷歌统计（可以改成你自己的，或者删掉）
+
+    // ---------- 以下为可选插件，需要时取消注释 ----------
+
+    // 谷歌统计（改成你自己的测量ID）
     // googleAnalyticsPlugin({
     //   id: "G-XXXXXXXXXX",
     //   debug: true,
     // }),
-    // 搜索插件（需要去 Algolia 申请账号，暂时可以注释掉）
+
+    // Algolia 搜索（需要先申请账号）
     // docsearchPlugin({
     //   appId: "YOUR_APP_ID",
     //   apiKey: "YOUR_API_KEY",
@@ -112,5 +141,6 @@ export default defineUserConfig({
     //   },
     // }),
   ],
+
   shouldPrefetch: false,
 });
