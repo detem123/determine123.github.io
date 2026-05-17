@@ -2,7 +2,6 @@ import { defineUserConfig } from "vuepress";
 import { getDirname, path } from "vuepress/utils";
 import { viteBundler } from '@vuepress/bundler-vite'
 import { docsearchPlugin } from "@vuepress/plugin-docsearch";
-// import { oml2dPlugin } from "vuepress-plugin-oh-my-live2d";
 import {
   canvasPlugin,
   CanvasPluginType,
@@ -24,8 +23,8 @@ export default defineUserConfig({
   locales: {
     "/": {
       lang: "zh-CN",
-      title: "Oragekk's Blog",
-      description: "上冬十二的博客",
+      title: "detem123 的博客",
+      description: "detem123 的个人博客，记录学习和生活",
     },
   },
   alias: {
@@ -51,7 +50,6 @@ export default defineUserConfig({
         },
       }
     },
-    // vuePluginOptions: {},
   }),
   plugins: [
     metingPlugin({
@@ -91,96 +89,28 @@ export default defineUserConfig({
     }),
     // 遮罩插件
     gradientCoverPlugin({}),
-    // 谷歌统计
-    googleAnalyticsPlugin({
-      // 配置项
-      id: "G-R1WPVQFH8L",
-      debug: true,
-    }),
-    // 搜索插件
-    docsearchPlugin({
-      appId: "PI9QTF572N",
-      apiKey: "07e2432555d8ecdd3fb72978f0a05cdc",
-      indexName: "oragekk",
-      locales: {
-        "/": {
-          placeholder: "搜索内容",
-          translations: {
-            button: {
-              buttonText: "搜索",
-              buttonAriaLabel: "搜索",
-            },
-            modal: {
-              searchBox: {
-                resetButtonTitle: "清除查询条件",
-                resetButtonAriaLabel: "清除查询条件",
-                cancelButtonText: "取消",
-                cancelButtonAriaLabel: "取消",
-              },
-              startScreen: {
-                recentSearchesTitle: "搜索历史",
-                noRecentSearchesText: "没有搜索历史",
-                saveRecentSearchButtonTitle: "保存至搜索历史",
-                removeRecentSearchButtonTitle: "从搜索历史中移除",
-                favoriteSearchesTitle: "收藏",
-                removeFavoriteSearchButtonTitle: "从收藏中移除",
-              },
-              errorScreen: {
-                titleText: "无法获取结果",
-                helpText: "你可能需要检查你的网络连接",
-              },
-              footer: {
-                selectText: "选择",
-                navigateText: "切换",
-                closeText: "关闭",
-                searchByText: "搜索提供者",
-              },
-              noResultsScreen: {
-                noResultsText: "无法找到相关结果",
-                suggestedQueryText: "你可以尝试查询",
-                reportMissingResultsText: "你认为该查询应该有结果？",
-                reportMissingResultsLinkText: "点击反馈",
-              },
-            },
-          },
-        },
-      },
-    }),
-    // 看板娘插件
-    // oml2dPlugin({
-    //   models: [
-    //     {
-    //       scale: 0.04,
-    //       path: "https://cdn.jsdelivr.net/gh/oragekk/blog-assets/live2D/sipeibojue_5/sipeibojue_5.model3.json",
-    //       position: [0, 70],
-    //       stageStyle: {
-    //         height: 350
-    //       }
-    //     },
-    //     {
-    //       scale: 0.04,
-    //       path: "https://cdn.jsdelivr.net/gh/oragekk/blog-assets/live2D/lafei_4/lafei_4.model3.json",
-    //       position: [0, 80],
-    //       stageStyle: {
-    //         height: 360
-    //       }
-    //     },
-    //     {
-    //       scale: 0.1,
-    //       path: "https://cdn.jsdelivr.net/gh/oragekk/blog-assets/live2D/z46_2/z46_2.model3.json",
-    //       position: [0, 60],
-    //       stageStyle: {
-    //         height: 330
-    //       }
-    //     },
-    //   ],
-    //   tips: {
-    //     idleTips: {
-    //       wordTheDay:true
+    // 谷歌统计（可以改成你自己的，或者删掉）
+    // googleAnalyticsPlugin({
+    //   id: "G-XXXXXXXXXX",
+    //   debug: true,
+    // }),
+    // 搜索插件（需要去 Algolia 申请账号，暂时可以注释掉）
+    // docsearchPlugin({
+    //   appId: "YOUR_APP_ID",
+    //   apiKey: "YOUR_API_KEY",
+    //   indexName: "YOUR_INDEX_NAME",
+    //   locales: {
+    //     "/": {
+    //       placeholder: "搜索内容",
+    //       translations: {
+    //         button: {
+    //           buttonText: "搜索",
+    //           buttonAriaLabel: "搜索",
+    //         },
+    //       },
     //     },
     //   },
-    // })
+    // }),
   ],
-  // Enable it with pwa
   shouldPrefetch: false,
 });
