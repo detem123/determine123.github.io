@@ -19,12 +19,11 @@ jobs:
       - name: 设置 Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18  # 改用稳定的 Node.js 18
-          # 暂时禁用缓存以排除干扰
-          # cache: 'pnpm'
+          node-version: 20   # 改这里
+          cache: 'pnpm'
 
       - name: 安装依赖
-        run: pnpm install  # 去掉了 --frozen-lockfile 以自动修复一些 lock 文件问题
+        run: pnpm install
 
       - name: 构建站点
         run: pnpm build
