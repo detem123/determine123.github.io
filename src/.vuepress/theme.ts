@@ -3,24 +3,21 @@ import { zhNavbar } from "./navbar/index.js";
 import { zhSidebar } from "./sidebar/index.js";
 export default MyTheme({
   hotReload: true,
-  hostname: "https://oragekk.me",
+  hostname: "https://detem123.github.io",
   themeColor: true,
   fullscreen: true,
   author: {
-    name: "Oragekk",
-    url: "https://orgaekk.me",
+    name: "detem123",
+    url: "https://detem123.github.io",
   },
 
   iconAssets: [
-    // 默认：
     "//at.alicdn.com/t/c/font_2410206_5vb9zlyghj.css",
-    // 自己的
-    "//at.alicdn.com/t/c/font_3941380_00g6dc2nedwir.css",
   ],
 
   logo: "/logo.svg",
 
-  repo: "OrageKK/oragekk.github.io",
+  repo: "detem123/detem123.github.io",
 
   docsDir: "src",
 
@@ -32,94 +29,48 @@ export default MyTheme({
 
   blog: {
     medias: {
-      // Baidu: "https://example.com",
-      // BiliBili: "https://example.com",
-      // Bitbucket: "https://example.com",
-      // Dingding: "https://example.com",
-      // Discord: "https://example.com",
-      // Dribbble: "https://example.com",
-      Email: "mailto:oragekk@163.com",
-      // Evernote: "https://example.com",
-      // Facebook: "https://example.com",
-      // Flipboard: "https://example.com",
-      // Gitee: "https://example.com",
-      GitHub: "https://github.com/OrageKK",
-      // Gitlab: "https://example.com",
-      Gmail: "mailto:oragekk@gmail.com",
-      // Instagram: "https://example.com",
-      // Lark: "https://example.com",
-      // Lines: "https://example.com",
-      // Linkedin: "https://example.com",
-      // Pinterest: "https://example.com",
-      // Pocket: "https://example.com",
-      // QQ: "https://example.com",
-      // Qzone: "https://example.com",
-      // Reddit: "https://example.com",
+      Email: "mailto:1524001843@qq.com",
+      GitHub: "https://github.com/detem123",
       Rss: "./rss.xml",
-      // Steam: "https://example.com",
-      // Twitter: "https://example.com",
-      // Wechat: "https://example.com",
-      // Weibo: "https://example.com",
-      // Whatsapp: "https://example.com",
-      // Youtube: "https://example.com",
-      // Zhihu: "https://example.com",
-
     },
-    name: "上冬十二",
+    name: "detem123",
   },
   locales: {
-    /**
-     * Chinese locale config
-     */
     "/": {
-      // navbar
       navbar: zhNavbar,
-
-      // sidebar
       sidebar: zhSidebar,
-
       footer: "默认页脚",
-
       displayFooter: false,
-
       blog: {
-        description: "到最后，竟庆幸于夕阳仍留在身上",
+        description: "正在学习编程，努力提升自己 💪",
         intro: "/intro.html",
       },
-
-      // page meta
       metaLocales: {
         editLink: "在 GitHub 上编辑此页",
       },
     },
   },
-  // navbarAutoHide: "always",
-  // 加密
   encrypt: {
     config: {
       "/demo/encrypt.html": ["1234"],
     },
   },
   plugins: {
-    // 代码高亮
     shiki: {
       themes: {
         light: "one-dark-pro",
         dark: "one-dark-pro",
       },
-      lineNumbers:15,
+      lineNumbers: 15,
     },
     components: {
       components: ["BiliBili", "Badge"],
     },
     blog: {
       filter: ({ filePathRelative, frontmatter }) => {
-        // 将标记为非文章，并且是说说的加入文章采集中，以便后续筛选
         if (!frontmatter.article && frontmatter.news) return true;
-
         return true;
       },
-
       type: [
         {
           key: "news",
@@ -141,7 +92,7 @@ export default MyTheme({
     },
     comment: {
       provider: "Waline",
-      serverURL: "https://talk.oragekk.me/", // your server url
+      serverURL: "https://talk.oragekk.me/", // ⚠️ 这里先留着，后期可以换成你自己的 Waline 服务
       reaction: true,
       requiredMeta: ["nick", 'mail'],
       wordLimit: 300,
@@ -159,18 +110,16 @@ export default MyTheme({
       ],
       locales: {
         "/": {
-          placeholder:
-            "欢迎留言~ _(≧∇≦」∠)_ (填写常用邮箱即可快速收到回复通知~)",
+          placeholder: "欢迎留言~ _(≧∇≦」∠)_",
         },
       },
     },
     prismjs: false,
     copyright: {
-      author: "Oragekk",
+      author: "detem123",
       license: "CC BY-NC-SA 4.0",
       global: true,
     },
-    // all features are enabled for demo, only preserve features you need here
     mdEnhance: {
       align: true,
       attrs: true,
@@ -213,8 +162,6 @@ export default MyTheme({
       vPre: true,
       vuePlayground: true,
     },
-
-    // uncomment these if you want a PWA
     pwa: {
       favicon: "/favicon.ico",
       cacheHTML: true,
