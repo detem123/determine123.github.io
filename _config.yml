@@ -1,8 +1,8 @@
 title: "Li Tianming · determine123 · AI Agent / AI Infra"
 description: Li Tianming（determine123）的个人主页：AI Agent、AI Infrastructure、机器人与智能控制。
 url: "https://determine123.github.io"
-baseurl: ""
-repository: "determine123/determine123.github.io"
+baseurl: "/determine"
+repository: "determine123/determine"
 theme: null
 markdown: kramdown
 permalink: pretty
