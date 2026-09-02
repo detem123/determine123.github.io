@@ -1,38 +1,34 @@
 # determine · 个人学术主页
 
-这是一个基于 Jekyll 和 GitHub Pages 的个人学术主页。
+这是一个基于 Jekyll 的个人学术主页，视觉结构参考 `acad-homepage` / Academic Pages 风格，但内容已替换为 determine 的个人经历。
 
-## 部署步骤
+## GitHub Pages 部署
 
-1. 在 GitHub 新建仓库，仓库名必须是：
+1. 直接使用现有仓库 `determine123/determine.github.io` 即可。由于仓库名不是 `determine123.github.io`，它会以 GitHub Pages 项目站点形式发布。
+2. 将本目录中的全部文件上传到仓库根目录，或执行：
 
-   ```text
-   determine123.github.io
-   ```
+```bash
+git init
+git add .
+git commit -m "build determine academic homepage"
+git branch -M main
+git remote add origin https://github.com/determine123/determine.github.io.git
+git push -u origin main
+```
 
-2. 将本目录中的文件上传到仓库根目录，至少包括：
+3. `_config.yml` 已按 `determine.github.io` 项目站点配置，`baseurl` 是 `/determine.github.io`。
+4. GitHub 仓库进入 **Settings → Pages**，在 **Build and deployment** 中选择 **Deploy from a branch**，分支选择 `main`，目录选择 `/ (root)`，保存。
+5. 等待 Actions 构建完成，访问 `https://determine123.github.io/determine.github.io/`。
 
-   ```text
-   _config.yml
-   Gemfile
-   index.html
-   styles.css
-   script.js
-   .github/workflows/pages.yml
-   ```
+## 本地预览（可选）
 
-3. 进入 GitHub 仓库：**Settings → Pages**。
-4. 在 **Build and deployment** 中选择 **GitHub Actions**。
-5. 推送到 `main` 分支后，Actions 会自动构建并部署。
-6. 访问：
+GitHub Pages 会在推送后自动构建，本地不运行也不影响部署。若想预览：
 
-   ```text
-   https://determine123.github.io
-   ```
+```bash
+bundle install
+bundle exec jekyll serve
+```
 
-## 注意
+然后打开 `http://localhost:4000`。
 
-- 不要添加 `.nojekyll`，否则 GitHub Pages 不会执行 Jekyll 构建。
-- 当前主页使用 `index.html` + 自定义 CSS，完全兼容 Jekyll。
-- 之后可以把文章放入 `_posts/`，把图片放入 `assets/images/`。
-- 如果 GitHub 用户名不是 `determine123`，请同步修改 `_config.yml` 中的 `url` 和 `repository`，并使用对应的 `用户名.github.io` 仓库名。
+注意：不要添加 `.nojekyll`，否则会绕过 Jekyll 构建。

@@ -1,18 +1,17 @@
-title: "determine · AI Agent / Embodied AI"
-email: determine@sjtu.edu.cn
-description: "determine 的个人学术主页：AI Agent、AI Infra、自动驾驶大模型与具身智能。"
+title: determine · AI Agent & Robotics
+description: determine 的个人学术主页：AI Agent、大模型应用、机器人与控制。
 url: "https://determine123.github.io"
-baseurl: ""
-repository: "determine123/determine123.github.io"
-lang: zh-CN
-encoding: utf-8
+baseurl: "/determine.github.io"
+repository: "determine123/determine.github.io"
+theme: null
 markdown: kramdown
 permalink: pretty
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - README.md
-  - node_modules
-  - vendor
-sass:
-  style: compressed
+collections:
+  pages:
+    output: true
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default

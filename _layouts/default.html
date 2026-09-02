@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ site.description }}">
+  {% include head/custom.html %}
+  <title>{{ page.title | default: site.title }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="site-header"><a class="brand" href="{{ '/' | relative_url }}"><span class="brand-mark">D</span><span>determine123</span></a><nav aria-label="主导航">{% for item in site.data.navigation %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}</nav><a class="header-link" href="mailto:determine@sjtu.edu.cn">determine@sjtu.edu.cn ↗</a></header>
+  <main>{{ content }}</main>
+  <script src="{{ '/assets/main.js' | relative_url }}"></script>
+  <footer class="site-footer wrap"><span>© 2026 determine123</span><span>AI Agent · Robotics · Control</span><a href="#top">回到顶部 ↑</a></footer>
+</body>
+</html>
